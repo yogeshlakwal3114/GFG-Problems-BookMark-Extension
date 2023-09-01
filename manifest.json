@@ -1,0 +1,48 @@
+{
+    "manifest_version": 3,
+    "name": "GFG To-do problems",
+    "version": "0.1",
+    "author": "Yogesh Lakwal",
+    "description": "This extension will help you to create a todo list for your GFG problems.",
+    "permissions": [
+      "storage",
+      "tabs"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "https://practice.geeksforgeeks.org/problems/*",
+          "https://www.learning.algozenith.com/problems/*",
+          "https://leetcode.com/problems/*"
+          
+        ],
+        "js": [
+          "content.js"
+        ]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/bookmark.png",
+          "assets/play.png",
+          "assets/delete.png",
+          "assets/save.png"
+        ],
+        "matches":["<all_urls>"]
+      }
+    ],
+    "action": {
+      "default_icon": {
+        "16": "assets/ext-icon.png",
+        "24": "assets/ext-icon.png",
+        "32": "assets/ext-icon.png"
+      },
+      "default_title": "GFG Todo Problems",
+      "default_popup": "popup.html"
+    }
+  }
+  
